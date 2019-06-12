@@ -1,7 +1,17 @@
 {% extends 'blog/base.html' %}
-
 {% block content %}
-    {% for post in posts %}
+<h1>Ryoの掲示板</h1>
+    <table>
+        <thread>
+            <tr>
+                <th>exam</th>
+                <th>exam2</th>
+                <th>exam3</th>
+            </tr>
+        </thread>
+        <tbody>
+            {% for post in posts %}
+            <tr>
         <div class="post">
             <div class="date">
                 {{ post.published_date }}
@@ -9,5 +19,8 @@
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <p>{{ post.text|linebreaksbr }}</p>
         </div>
+            </tr>
+        </tbody>
+    </table>
     {% endfor %}
 {% endblock %}
